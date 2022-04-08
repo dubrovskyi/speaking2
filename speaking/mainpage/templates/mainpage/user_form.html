@@ -1,0 +1,23 @@
+<div style="border">
+    <div class="mt-6" style="display:inline-block;">
+        <form action="add_user" method="post">
+            {% csrf_token %}
+            <div class="row">
+                {% for field in form %}
+                <div class="col">
+                    <div class="form-group">
+                        {{ field.label_tag }}
+                        {{ field }}
+                        <div class="invalid-feedback">
+                            {{ form.errors }}
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+            <div class="mb-3">
+                <button type="submit" class="btn btn-primary btn-block me-md-2 mt-3">Save News</button>
+            </div>
+        </form>
+    </div>
+</div>
