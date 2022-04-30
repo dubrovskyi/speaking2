@@ -9,7 +9,6 @@ from .models import User
 class UserForm(forms.ModelForm):
     class Meta:
         model = User
-        # fields = '__all__'
         fields = ['name', 'country', 'level', 'question', 'connect']
         widgets = {
             'name': forms.TextInput(attrs={'class': 'form-control'}),
