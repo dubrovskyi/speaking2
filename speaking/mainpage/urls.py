@@ -5,5 +5,5 @@ from .serializers import add_user
 
 urlpatterns = [
     path('', index, name='index'),
-    path('add_user', add_user, name='add_user'),
+    path('users/add_user', add_user, name='add_user'),
 ]

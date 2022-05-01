@@ -34,12 +34,15 @@ def add_user(request):
     if request.method == 'POST':
         request_data = {}
         request_data.update(request.data.dict() if hasattr(request.data, 'dict') else request.data)
-        request_data.pop('csrfmiddlewaretoken', None)
+        api_not = request_data.pop('csrfmiddlewaretoken', None)
         request_data['idd'] = request.META.get('REMOTE_ADDR')
         request_data['date'] = timezone.now()
         serializer = UserSerializer(data=request_data)
         if serializer.is_valid():
             serializer.create(request_data)
+            if api_not is None:
+                user = User.objects.get(idd=request.META.get('REMOTE_ADDR'))
+                return Response({'user_id': user.id})
             return redirect(request.META.get('HTTP_REFERER', '/'))
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
