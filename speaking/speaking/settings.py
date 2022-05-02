@@ -28,7 +28,7 @@ SECRET_KEY = 'django-insecure-xj7=k+&s*7kygm*)1d5u1fbc517s3-kfi4t7n6*@4w90yzgw7_
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['django-speaking.herokuapp.com', '127.0.0.1', 'localhost']
+ALLOWED_HOSTS = ['speaking-with.herokuapp.com', '127.0.0.1', 'localhost']
 
 # Application definition
 
