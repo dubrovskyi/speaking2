@@ -1,1 +1,1 @@
-web: gunicorn django-speaking.wsgi
+web: gunicorn --pythonpath speaking speaking.wsgi --log-file -
