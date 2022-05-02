@@ -15,7 +15,7 @@ from mainpage.models import User
 class UserSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = User
-        fields = ['name', 'country', 'level', 'connect', 'question']
+        fields = ['name', 'country', 'level', 'connect', 'question', 'idd']
 
     def create(self, validated_data):
         user, created = User.objects.update_or_create(
