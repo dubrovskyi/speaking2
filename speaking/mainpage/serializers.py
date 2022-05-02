@@ -39,7 +39,7 @@ def add_user(request):
         if serializer.is_valid():
             serializer.create(request_data)
             if api_not is None:
-                user = User.objects.get(idd=request.META.get('REMOTE_ADDR'))
+                user = User.objects.get(idd=request_data['idd'])
                 return Response({'user_id': user.id})
             return redirect(request.META.get('HTTP_REFERER', '/'))
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
